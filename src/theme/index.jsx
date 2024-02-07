@@ -35,20 +35,14 @@ const theme = createTheme({
       fontWeight: 700,
     },
     h2: {
-      fontSize: "1.8rem",
+      fontSize: "1.5rem",
       fontWeight: 600,
     },
     body1: {
-      fontSize: "1rem",
-      lineHeight: 1.5,
+      fontSize: "1.2rem",
+      lineHeight: 1.,
     },
     // ... otras configuraciones tipográficas
-  },
-  transitions: {
-    duration: {
-      enteringScreen: 200, // Duración de la animación de entrada
-      leavingScreen: 150, // Duración de la animación de salida
-    },
   },
   breakpoints: {
     values: {

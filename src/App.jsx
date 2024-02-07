@@ -6,17 +6,20 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NavLayout from "./components/Nav/NavLayout";
 import logo from "./assets/Bancolombia.svg"
+import fondo from "./assets/fondo.png"
+import icon from "./assets/logo.svg"
 
 const App = () => {
   return (
     <Stack sx={{
-      backgroundImage: `url(${logo})`,
+      backgroundImage: `url(${fondo})`,
       height: '100vh',
       backgroundSize: '30pc',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'bottom right'
+      backgroundPosition: 'center',
+      backgroundSize: 'cover'
     }}>
-      <BrowserRouter>
+      <BrowserRouter> 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
