@@ -17,9 +17,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import App from "../App";
 import { AppContext } from "../context/AppContext";
+import useForm from "../hooks/UseFrom";
 
 const Login = () => {
   const {setDataUser} = useContext(AppContext)
+  const {form, onChangeInfo} = useForm({
+    account: "104343",
+    password: "keyner1105Ko",
+  })
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
   const SingIn = async() => {
@@ -79,6 +84,7 @@ const Login = () => {
               placeholder="122.."
               variant="standard"
               fullWidth
+              value={form.account}
             />
           </Box>
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -91,6 +97,8 @@ const Login = () => {
               placeholder="122.."
               variant="standard"
               fullWidth
+              value={form.password}
+              onChange={({target: value}) => onChangeInfo(value,'account')}
             />
           </Box>
         </Stack>
