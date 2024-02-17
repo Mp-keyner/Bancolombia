@@ -20,34 +20,34 @@ import { AppContext } from "../context/AppContext";
 import useForm from "../hooks/UseFrom";
 
 const Login = () => {
-  const {setDataUser} = useContext(AppContext)
-  const {form, onChangeInfo} = useForm({
+  const { setDataUser } = useContext(AppContext);
+  const { form, onChangeInfo } = useForm({
     account: "104343",
     password: "keyner1105Ko",
-  })
+  });
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
-  const SingIn = async() => {
+  const navigate = useNavigate();
+  const SingIn = async () => {
     setLoading(true);
-    console.log('hello')
-    const TokenTrue = localStorage.getItem('token')
-    if(TokenTrue != null){
-      setLoading(true)
+    console.log("hello");
+    const TokenTrue = localStorage.getItem("token");
+    if (TokenTrue != null) {
+      setLoading(true);
       setTimeout(() => {
-        setLoading(false)
-        navigate('/Home')
+        setLoading(false);
+        navigate("/Home");
       }, 1000);
-    }else{
+    } else {
       try {
         const Data = await axios.post("https://apibank.ikoodi.site/api/login", {
           account: "104343",
           password: "keyner1105Ko",
         });
         setLoading(false);
-        console.log(Data)
-        setDataUser(Data.data.user)
-        navigate('/Home')
-        localStorage.setItem('token', JSON.stringify(Data.data))
+        console.log(Data);
+        setDataUser(Data.data.user);
+        navigate("/Home");
+        localStorage.setItem("token", JSON.stringify(Data.data));
       } catch (error) {
         console.log(error);
         setLoading(false);
@@ -98,7 +98,9 @@ const Login = () => {
               variant="standard"
               fullWidth
               value={form.password}
-              onChange={({target: value}) => onChangeInfo(value,'account')}
+              onChange={({ target: value }) =>
+                onChangeInfo(parseInt(value), "account")
+              }
             />
           </Box>
         </Stack>

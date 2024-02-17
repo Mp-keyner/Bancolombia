@@ -40,7 +40,7 @@ const theme = createTheme({
     },
     body1: {
       fontSize: "1.2rem",
-      lineHeight: 1.,
+      lineHeight: 1,
     },
     // ... otras configuraciones tipográficas
   },
